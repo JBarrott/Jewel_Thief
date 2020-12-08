@@ -101,7 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   maxHealth: 5
+  maxGreenJewel: 0
   maxScore: 0
+  maxCogs: 4
   projectilePrefab: {fileID: 5648282020819891092, guid: aa9139f8a54e31747a570479beced986, type: 3}
   hitPrefab: {fileID: 4734752295856868779, guid: 23e31328409a53345a1b541f03124d97, type: 3}
   healthPrefab: {fileID: 8184138341839846673, guid: 1f0549f6e75250a4b968a326a1e080b7, type: 3}
@@ -110,7 +112,13 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   GameOverText: {fileID: 0}
   nameText: {fileID: 0}
+  flowersText: {fileID: 0}
+  cogsText: {fileID: 0}
   timeInvincible: 2
+  musicClipOne: {fileID: 0}
+  musicClipTwo: {fileID: 0}
+  musicClipThree: {fileID: 0}
+  musicSource: {fileID: 0}
 --- !u!50 &6822482001408288514
 Rigidbody2D:
   serializedVersion: 4
@@ -187,11 +195,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6ff3e55114f9f7942a9a93d2588c2f0e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9a3cad324e361ae47b83dd72d19b09d6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedClip: {fileID: 8300000, guid: 05a725e2275163f4c80f4e2b02f12ca1, type: 3}
-  explosionPrefab: {fileID: 8184138341839846673, guid: 1f0549f6e75250a4b968a326a1e080b7, type: 3}
 --- !u!61 &828976457531306045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,4 +137,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectedClip: {fileID: 8300000, guid: 05a725e2275163f4c80f4e2b02f12ca1, type: 3}
-  explosionPrefab: {fileID: 0}

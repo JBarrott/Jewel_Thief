@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RubyController
   - Cogs
+  - Flower
   layers:
   - Default
   - TransparentFX

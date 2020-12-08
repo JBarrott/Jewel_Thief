@@ -12,7 +12,10 @@ public class RubyController : MonoBehaviour
     public int maxHealth = 5;
     public int maxScore = 0;
     public int maxCogs = 4;
+    public int maxFlowers = 0;
+    public int maxJewels = 0;
     public static int level = 1;
+    private int win;
 
     public GameObject projectilePrefab;
     public ParticleSystem hitPrefab;
@@ -29,11 +32,19 @@ public class RubyController : MonoBehaviour
 
     public int cogs { get { return currentCogs; } }
     int currentCogs;
+
+    public int flowers { get { return currentFlowers; } }
+    int currentFlowers;
+
+    public int jewels { get { return currentJewels; } }
+    int currentJewels;
     
     public Text scoreText;
     public Text GameOverText;
     public Text nameText;
+    public Text flowersText;
     public Text cogsText;
+    public Text jewelsText;
 
     public float timeInvincible = 2.0f;
     bool isInvincible;
@@ -62,6 +73,8 @@ public class RubyController : MonoBehaviour
         currentHealth = maxHealth;
         currentScore = maxScore;
         currentCogs = maxCogs;
+        currentFlowers = maxFlowers;
+        currentJewels = maxJewels;
 
         scoreText.text = "Fixed Robots: " + currentScore;
 
@@ -70,7 +83,9 @@ public class RubyController : MonoBehaviour
         scoreText.text = "";
         GameOverText.text = "";
         nameText.text = "";
+        flowersText.text = "";
         cogsText.text = "";
+        jewelsText.text = "";
 
         musicSource.clip = musicClipOne;
         musicSource.Play();
@@ -99,6 +114,15 @@ public class RubyController : MonoBehaviour
             invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
                 isInvincible = false;
+        }
+
+        if (win == 3)
+        {
+            musicSource.clip = musicClipTwo;
+                musicSource.Play();
+
+                GameOverText.text = "You Win! Press R to Restart.";
+                nameText.text = "Game created by Jordan Barrott";
         }
 
         if(Input.GetKeyDown(KeyCode.C))
@@ -138,6 +162,30 @@ public class RubyController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            if (level == 1)
+            {
+                SceneManager.LoadScene("PlayScene");
+                level = level + 1;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            if (level == 2)
+            {
+                SceneManager.LoadScene("MainScene");
+                level = level + 1;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("HomeScene");
+            level = 1;
         }
 
         if (Input.GetKey("escape"))
@@ -203,20 +251,18 @@ public class RubyController : MonoBehaviour
     public void ChangeScore(int amount)
     {
         currentScore += amount;
-        scoreText.text = "Fixed Robots: " + currentScore;
+        scoreText.text = "Fixed Robots: " + currentScore + "/4";
         if (currentScore == 4)
         {
-            if (level < 2)
+            if (level < 4)
             {
                 GameOverText.text = "Talk to Jambi to visit Stage 2!";
+                nameText.text = "Complete Task List to Win";
             }
 
-            if (level >= 2)
+            if (level == 4)
             {
-                musicSource.clip = musicClipTwo;
-                musicSource.Play();
-                GameOverText.text = "You Win! Press R to Restart.";
-                nameText.text = "Game created by Jordan Barrott";
+                win = win + 1;
             }
         }
     }
@@ -225,6 +271,28 @@ public class RubyController : MonoBehaviour
     {
         currentCogs += amount;
         cogsText.text = "Cogs: " + currentCogs;
+    }
+
+    public void ChangeFlowers(int amount)
+    {
+        currentFlowers += amount;
+        flowersText.text = "Flowers: " + currentFlowers + "/6";
+
+        if (currentFlowers == 6)
+        {
+            win = win + 1;
+        }
+    }
+
+    public void ChangeJewels(int amount)
+    {
+        currentJewels += amount;
+        jewelsText.text = "Jewels: " + currentJewels + "/8";
+
+        if (currentJewels == 8)
+            {
+                win = win + 1;
+            }
     }
 
     public void PlaySound(AudioClip clip)

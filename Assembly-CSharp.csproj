@@ -40,11 +40,16 @@
      <Compile Include="Assets\Scripts\HardEnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\HealthCollectible.cs" />
+     <Compile Include="Assets\Scripts\FlowerCollectible.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\NonPlayerCharacter.cs" />
+     <Compile Include="Assets\Scripts\Green.cs" />
      <Compile Include="Assets\Scripts\CogsCollectible.cs" />
      <Compile Include="Assets\Scripts\UIHealthBar.cs" />
      <Compile Include="Assets\Scripts\RubyController.cs" />
+     <Compile Include="Assets\Scripts\Blue.cs" />
+     <Compile Include="Assets\Scripts\Red.cs" />
+     <Compile Include="Assets\Scripts\Diamond.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
